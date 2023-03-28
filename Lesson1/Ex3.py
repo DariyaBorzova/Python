@@ -1,5 +1,4 @@
 n = int(input("Введите число n: "))
-nn = str(n)+str (n)
-nnn = str(n)+str (n)+str (n)
-sum = n+int(nn)+int(nnn)
-print("Результат: ", sum)
+n2 = str(n) + str(n)
+n3= str(n) + str(n) + str(n)
+print(f'Результат: {int(n) + int(n2) + int(n3)} ')
