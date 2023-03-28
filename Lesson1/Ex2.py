@@ -1,4 +1,4 @@
-sec = input("Введите время в секундах: ")
+sec = int(input("Введите время в секундах: "))
 hours = sec // 3600
 ost = sec % 3600
 minutes = ost // 60
