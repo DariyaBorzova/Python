@@ -11,8 +11,10 @@ import urllib.request, chardet
 
 task5_1 = urllib.request.urlopen('http://yandex.ru').read()
 x = chardet.detect(task5_1)
-print(x)
+print(task5_1.decode(x['encoding']))
 
-task5_2 = urllib.request.urlopen('http://youtube.ru').read()
+
+task5_2 = urllib.request.urlopen('http://youtube.com').read()
 y = chardet.detect(task5_2)
-print(y)
+print(task5_2.decode(y['encoding']))
+
