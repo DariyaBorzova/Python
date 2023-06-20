@@ -91,14 +91,19 @@ def editNote():
     print("Введите идентификатор заметки:")
     noteId = input()
     noteList = readDataFromFile()
+    isNoteFound = False
     for note in noteList:
         if note.get('id') == noteId:
+            isNoteFound = True
             printNote(note)
             print('Введите новый текст заметки:')
             newText = input()
             note['note'] = newText
             break
-    writeDataToFile(noteList)
+    if isNoteFound:
+        writeDataToFile(noteList)
+    else:
+        print('Заметка не найдена')
 
 
 def deleteNote():
@@ -106,7 +111,10 @@ def deleteNote():
     noteId = input()
     noteList = readDataFromFile()
     note = getNoteById(noteList, noteId)
-    noteList.remove(note)
+    if note:
+        noteList.remove(note)
+    else:
+        print('Заметка не найдена')
     writeDataToFile(noteList)
 
 
@@ -115,13 +123,17 @@ def outputNote():
     noteId = input()
     noteList = readDataFromFile()
     note = getNoteById(noteList, noteId)
-    printNote(note)
+    if note:
+        printNote(note)
+    else:
+        print('Заметка не найдена')
 
 
 def getNoteById(noteList, noteId):
     for note in noteList:
         if note['id'] == noteId:
             return note
+    return None
 
 
 def outputByDate():
